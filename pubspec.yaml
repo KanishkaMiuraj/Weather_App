@@ -48,17 +48,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^3.0.0
-  flutter_form_builder: ^9.1.0
-  flutter_localization: ^0.1.13
-  form_builder_validators: ^10.0.0
-  http: ^1.1.0
-  sqflite: ^2.0.0
-  dio: ^4.0.4
-  google_sign_in: ^5.2.1
-  intl: ^0.19.0
-  form_builder_file_picker: ^4.1.0
-  elegant_notification: ^2.2.2
+
 
 
 

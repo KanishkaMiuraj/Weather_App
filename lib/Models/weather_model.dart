@@ -6,6 +6,7 @@ class Weather {
   final double rain;
   final double windSpeed;
   final double windDirection;
+  final int weatherCode; // Added weather code
 
   Weather({
     required this.cityName,
@@ -15,6 +16,7 @@ class Weather {
     required this.rain,
     required this.windSpeed,
     required this.windDirection,
+    required this.weatherCode,
   });
 
   factory Weather.fromJson(Map<String, dynamic> json) {
@@ -26,10 +28,11 @@ class Weather {
       rain: json['current']['rain']?.toDouble() ?? 0.0,
       windSpeed: json['current']['wind_speed_10m']?.toDouble() ?? 0.0,
       windDirection: json['current']['wind_direction_10m']?.toDouble() ?? 0.0,
+      weatherCode: json['current']['weather_code'] ?? 0,
     );
   }
 
-  // Method to get wind direction as a string
+  // Get wind direction as a string
   String getWindDirection() {
     if (windDirection >= 0 && windDirection < 22.5) {
       return 'North';

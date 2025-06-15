@@ -22,12 +22,10 @@ class WeatherService {
       if (response.statusCode == 200) {
         return Weather.fromJson(jsonDecode(response.body));
       } else {
-        // Log the error status code
         print("API Error: ${response.statusCode}");
         throw Exception('Failed to load weather data');
       }
     } catch (e) {
-      // Log the error
       print("Error: $e");
       throw Exception('Failed to load weather data');
     }
@@ -35,18 +33,15 @@ class WeatherService {
 
   // Fetch current location (latitude, longitude) and city name
   Future<Map<String, dynamic>> getCurrentLocation() async {
-    // Get permission to access location
     LocationPermission permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
     }
 
-    // Fetch current position (latitude and longitude)
     Position position = await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.high,
     );
 
-    // Convert coordinates into a city name
     List<Placemark> placemarks =
     await placemarkFromCoordinates(position.latitude, position.longitude);
 
